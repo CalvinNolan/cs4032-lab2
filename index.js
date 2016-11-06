@@ -62,7 +62,7 @@ if (cluster.isMaster && ((typeof(process.argv[2]) === 'undefined') || (typeof(pr
       // Respond to 'HELO' and 'KILL_SERVICE' requests
       c.on('data', (data) => {
         if (data.toString().substring(0, 4) === "HELO") {
-          c.write(data + "IP:" + getCurrentIP() + "\nPORT:" + process.argv[2] + "\nStudentID:13325852\n");
+          c.write(data + "IP:" + getCurrentIP() + "\nPort:" + process.argv[2] + "\nStudentID:13325852\n");
         } else if (data.toString().substring(0, 12) === "KILL_SERVICE") {
           process.send({ cmd: 'killService' });
         } else {
